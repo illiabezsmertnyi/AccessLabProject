@@ -85,5 +85,29 @@ public class DefinitionSteps {
         searchResultsPage = pageFactoryManager.getSearchResultsPage();
         assertEquals(searchResultsPage.getSearchResultTitleText(), expectedText);
     }
+
+    @When("User clicks 'Coronavirus' button")
+    public void userClicksCoronavirusButton() {
+        newsPage = pageFactoryManager.getNewsPage();
+        newsPage.clickCoronavirusPageButton();
+    }
+
+    @And("User clicks 'Stories' button")
+    public void userClicksStoriesButton() {
+        coronavirusPage = pageFactoryManager.getCoronavirusPage();
+        coronavirusPage.clickStoriesPageButton();
+    }
+
+    @And("User clicks 'Question' button")
+    public void userClicksQuestionButton() {
+        yourStoriesPage = pageFactoryManager.getYourStoriesPage();
+        yourStoriesPage.clickContactFormPageButton();
+    }
+
+    @Then("User enter {string} in description field")
+    public void userEnterKeywordInDescriptionField(final String descriptionText) {
+        contactFormPage = pageFactoryManager.getContactFormPage();
+        contactFormPage.enterTextToSearchField(descriptionText);
+    }
 }
 

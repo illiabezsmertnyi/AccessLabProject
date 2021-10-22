@@ -21,6 +21,9 @@ public class NewsPage extends BasePage {
     @FindBy(xpath = "//input[@type = 'text']")
     private WebElement searchField;
 
+    @FindBy(xpath = "//a[@href = '/news/coronavirus']")
+    private WebElement coronavirusPageButton;
+
 
 
     public NewsPage(WebDriver driver) {
@@ -38,5 +41,10 @@ public class NewsPage extends BasePage {
         searchField.sendKeys(categoryText.getText());
         searchField.sendKeys(Keys.ENTER);
     }
+
+    public void clickCoronavirusPageButton() {
+        coronavirusPageButton.click();
+    }
+
 
 }
